@@ -1,4 +1,5 @@
 import request from 'request';
+import axios from 'axios';
 
 require('dotenv').config();
 
@@ -24,22 +25,11 @@ const getMoviesByActor = (actorId) => {
 };
 
 
-const getActorId = () => {
-  const options = {
-    method: 'GET',
-    url: personSearchUrl,
-  };
-  request(options, (err, response, body) => {
-    if (err) {
-      throw err;
-    }
+const getActorId = async () => {
+  const temp = await axios(personSearchUrl);
 
-    const temp = JSON.parse(body);
-
-    console.log(temp.results[0].id);
-
-    getMoviesByActor(temp.results[0].id);
-  });
+  return temp.data.results[0].id;
 };
 
-getActorId();
+const temp = getActorId();
+console.log(temp);
