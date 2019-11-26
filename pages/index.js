@@ -1,6 +1,6 @@
-import React from 'react'
-import Head from 'next/head'
-import Nav from '../components/nav'
+import React from 'react';
+import Head from 'next/head';
+import Nav from '../components/nav';
 
 const Home = () => (
   <div>
@@ -14,7 +14,11 @@ const Home = () => (
     <div className="hero">
       <h1 className="title">Welcome to Next.js!</h1>
       <p className="description">
-        To get started, edit <code>pages/index.js</code> and save to reload.
+        To get started, edit
+        {' '}
+        <code>pages/index.js</code>
+        {' '}
+and save to reload.
       </p>
 
       <div className="row">
@@ -36,7 +40,8 @@ const Home = () => (
       </div>
     </div>
 
-    <style jsx>{`
+    <style jsx>
+      {`
       .hero {
         width: 100%;
         color: #333;
@@ -81,8 +86,10 @@ const Home = () => (
         font-size: 13px;
         color: #333;
       }
-    `}</style>
-  </div>
-)
+    `}
 
-export default Home
+    </style>
+  </div>
+);
+
+export default Home;
