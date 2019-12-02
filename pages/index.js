@@ -6,11 +6,23 @@ const Home = () => {
   const [actorOne, setActorOneName] = useState('Nathan Fillion');
   const [actorTwo, setActorTwoName] = useState('Alan Tudyk');
 
-  const sumbitActor = (event) => {
+  async function sumbitActor(event) {
     event.preventDefault();
-    console.log(actorOne);
-    console.log(actorTwo);
-  };
+    const payload = {
+      actorOne,
+      actorTwo,
+    };
+    console.log(payload);
+    const response = await fetch('/api/actor_credits/actor_credits', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    console.log(data);
+  }
 
   return (
     <div>
