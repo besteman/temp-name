@@ -1,95 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
-import Nav from '../components/nav';
+import 'bootstrap/dist/css/bootstrap.css';
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+const Home = () => {
+  const [actorOne, setActorOneName] = useState('Nathan Fillion');
+  const [actorTwo, setActorTwoName] = useState('Alan Tudyk');
 
-    <Nav />
+  const sumbitActor = (event) => {
+    event.preventDefault();
+    console.log(actorOne);
+    console.log(actorTwo);
+  };
 
-    <div className="hero">
-      <h1 className="title">Welcome to Next.js!</h1>
-      <p className="description">
-        To get started, edit
-        {' '}
-        <code>pages/index.js</code>
-        {' '}
-and save to reload.
-      </p>
+  return (
+    <div>
+      <Head>
+        <title>Home</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-      <div className="row">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
-        </a>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 text-center m-4">
+            <h1>Search for Movies that Actors were in Together</h1>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-5">
+            <div className="input-group mb-3">
+              {/* <input onChange={(e) => setActorOneName(e.target.value)} value={actorOne} type="text" className="form-control" placeholder="Actor Name" aria-label="Username" aria-describedby="basic-addon1" /> */}
+              <input value="Nathan Fillion" type="text" className="form-control" placeholder="Actor Name" aria-label="Username" aria-describedby="basic-addon1" />
+            </div>
+          </div>
+          <div className="col-sm-5">
+            <div className="input-group mb-3">
+              {/* <input onChange={(e) => setActorTwoName(e.target.value)} value={actorTwo} type="text" className="form-control" placeholder="Actor Name" aria-label="Username" aria-describedby="basic-addon1" /> */}
+              <input value="Alan Tudyk" type="text" className="form-control" placeholder="Actor Name" aria-label="Username" aria-describedby="basic-addon1" />
+            </div>
+          </div>
+          <div className="col-sm-2">
+            <button type="button" className="btn btn-primary" onClick={sumbitActor}>Submit</button>
+          </div>
+        </div>
       </div>
     </div>
-
-    <style jsx>
-      {`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}
-
-    </style>
-  </div>
-);
+  );
+};
 
 export default Home;
